@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -29,15 +31,66 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    buildFeatures{
+        viewBinding = true
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    buildToolsVersion '31.0.0'
+    ndkVersion '23.1.7779620'
 }
 
 dependencies {
-
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+
+    //Fragment
+    implementation 'androidx.fragment:fragment-ktx:1.4.1'
+
+    //Activity
+    implementation 'androidx.activity:activity-ktx:1.4.0'
+
+    //ViewModel
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
+
+    //LiveData
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
+
+    //Dagger Hilt
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+
+    //Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+
+    //RecyclerView
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+
+    //CardView
+    implementation 'androidx.cardview:cardview:1.0.0'
+
+    //Picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'jp.wasabeef:picasso-transformations:2.4.0'
+
+    //Escala Pantalla
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation 'com.intuit.ssp:ssp-android:1.0.6'
+
+    //Required for local unit tests (JUnit 4 framework)
     testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.mockito:mockito-core:4.3.1'
+    testImplementation 'org.mockito:mockito-all:2.0.2-beta'
+
+    //Pruebas de Instrumentacion con Interfaz Grafica
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 }

@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">PruebaAndroid</string>
+    <string name="app_name">Lyrics.ovh</string>
+    <string name="f01_titulo">lyrics.ovh</string>
+    <string name="f01_subtitulo">ONLY THE LYRICS</string>
+    <string name="f02_hintsearch">Type the song you want the lyrics</string>
+    <string name="f02_error_network">Network Error</string>
 </resources>
